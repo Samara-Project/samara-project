@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { FaShoppingCart } from 'react-icons/fa';
+import { MdClose, MdMenu } from "react-icons/md";
+import { LuSearch } from "react-icons/lu";
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -20,19 +22,11 @@ const Navbar = () => {
         { name: 'Find Us', href: '#find-us' },
         { name: 'Buy Now', href: '#buy-now' }
     ];
-    // <div className='fixed w-full bg-dark-green/[0.65] backdrop-blur-[32px] px-8 py-4 z-50'>
-    //     <Image
-    //         src="/assets/svg/logo.svg"
-    //         alt="Samara Logo"
-    //         width={120}
-    //         height={40}
-    //     />
-    // </div>
 
     return (
         <nav
             className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
-                ? 'bg-secondary/90 backdrop-blur-md shadow-lg'
+                ? 'bg-secondary/[95%] backdrop-blur-md shadow-lg'
                 : 'bg-secondary/60 backdrop-blur-md'
                 }`}
         >
@@ -65,14 +59,14 @@ const Navbar = () => {
                             className="text-amber-50 cursor-not-allowed hover:text-amber-300 transition-all duration-200 p-2 hover:bg-white/10 rounded-lg group"
                             aria-label="Search"
                         >
-                            <Search className="w-5 h-5 group-hover:fill-amber-300/20" />
+                            <LuSearch className="w-5 h-5 group-hover:fill-amber-300/20" />
                         </button>
 
                         <button
                             className="cursor-not-allowed text-amber-50 hover:text-amber-300 transition-all duration-200 p-2 hover:bg-white/10 rounded-lg relative group"
                             aria-label="Cart"
                         >
-                            <ShoppingCart className="w-5 h-5 group-hover:fill-amber-300/20" />
+                            <FaShoppingCart className="w-5 h-5 group-hover:fill-amber-300/20" />
                             <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
                                 1
                             </span>
@@ -84,9 +78,9 @@ const Navbar = () => {
                             aria-label="Menu"
                         >
                             {isMobileMenuOpen ? (
-                                <X className="w-6 h-6" />
+                                <MdClose className="w-6 h-6" />
                             ) : (
-                                <Menu className="w-6 h-6" />
+                                <MdMenu className="w-6 h-6" />
                             )}
                         </button>
                     </div>

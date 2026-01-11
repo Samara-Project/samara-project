@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
-import { ArrowDown } from 'lucide-react'
 
 const Hero = ({ heroData }) => {
   const [isScrolled, setIsScrolled] = useState(false);
