@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 const Location = ({ locationData }) => {
 
     return (
-        <section className='pt-12 md:pt-16 lg:pt-20'>
+        <section id='location' className='pt-12 md:pt-16 lg:pt-20'>
             <div className='w-full aspect-[16/9] sm:aspect-[16/7] md:aspect-[1960/800] lg:aspect-[1960/660]'>
                 {locationData?.embedUrl ? (
                     <iframe
@@ -25,37 +25,29 @@ const Location = ({ locationData }) => {
             </div>
 
             <div className='container mx-auto px-4 md:px-6 lg:px-8 flex justify-center relative pb-12 md:pb-[400px] lg:pb-[445px]'>
-                {/* Card */}
                 <div className='w-full md:absolute md:p-8 lg:p-9 p-6 bg-white md:-top-16 lg:-top-20 md:max-w-[800px] lg:max-w-[1005px] mt-6 md:mt-0'
                     style={{
                         boxShadow: '0px 4px 84.2px 0px rgba(0, 0, 0, 0.17)',
                     }}>
 
-                    {/* Title */}
                     <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary">
                         {locationData?.title}
                     </h2>
 
-                    {/* Description */}
                     <p className="text-secondary text-xs sm:text-base leading-relaxed mt-3 md:mt-4 text-center font-medium">
                         {locationData?.description}
                     </p>
 
-                    {/* Additional Info */}
                     {locationData?.additionalInfo && (
                         <p className="text-primary text-sm sm:text-base leading-relaxed mt-3 md:mt-4 text-center font-semibold">
                             {locationData?.additionalInfo}
                         </p>
                     )}
-
-                    {/* Address */}
                     {locationData?.address && (
                         <div className="text-secondary text-xs sm:text-base leading-relaxed mt-3 md:mt-4 text-center">
                             {locationData?.address}
                         </div>
                     )}
-
-                    {/* Contact Info */}
                     <div className='mt-4 md:mt-6 flex flex-col gap-3 md:gap-4 items-center'>
                         {locationData?.whatsapp && (
                             <div className='flex items-center'>

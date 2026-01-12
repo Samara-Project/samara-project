@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FaShoppingCart } from 'react-icons/fa';
 import { MdClose, MdMenu } from "react-icons/md";
 import { LuSearch } from "react-icons/lu";
+import { scrollToSection } from '../../../utils/helpers/smoothScrollTo';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -17,10 +18,10 @@ const Navbar = () => {
     }, []);
 
     const menuItems = [
-        { name: 'Home', href: '#home' },
-        { name: 'Our World', href: '#our-world' },
-        { name: 'Find Us', href: '#find-us' },
-        { name: 'Buy Now', href: '#buy-now' }
+        { name: 'Home', href: 'home' },
+        { name: 'Our World', href: 'about' },
+        { name: 'Find Us', href: 'location' },
+        { name: 'Buy Now', href: 'product' }
     ];
 
     return (
@@ -44,13 +45,13 @@ const Navbar = () => {
 
                     <div className="hidden md:flex items-center space-x-6">
                         {menuItems.map((item) => (
-                            <a
+                            <button
                                 key={item.name}
-                                href={item.href}
+                                onClick={(e) => scrollToSection(e, item?.href)}
                                 className="text-primary font-semibold hover:text-amber-300 transition-colors duration-200 text-lg tracking-wide"
                             >
                                 {item.name}
-                            </a>
+                            </button>
                         ))}
                     </div>
 

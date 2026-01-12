@@ -4,7 +4,7 @@ import React from 'react'
 
 const Experience = ({ experienceData }) => {
     return (
-        <section className='container mx-auto py-12 md:py-16 lg:py-20 grid grid-cols-2 lg:grid-cols-3 gap-10'>
+        <section id='about' className='container mx-auto py-12 md:py-16 lg:py-20 grid grid-cols-2 lg:grid-cols-3 gap-10'>
             {experienceData.sort((a, b) => a.order - b.order).map((experience, index) => (
                 <div key={experience?.title + index} className='flex flex-col items-center w-full justify-between'>
                     <div className='flex flex-col items-center h-full'>

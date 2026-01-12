@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
+import Link from 'next/link';
+import { scrollToSection } from '../../../utils/helpers/smoothScrollTo';
 
 const Hero = ({ heroData }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,8 +14,9 @@ const Hero = ({ heroData }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
-    <section className='relative h-screen w-full overflow-hidden'>
+    <section id='home' className='relative h-screen w-full overflow-hidden'>
       <div
         className='absolute inset-0 bg-cover bg-center'
         style={{
@@ -38,7 +41,10 @@ const Hero = ({ heroData }) => {
             {heroData?.subtitle}
           </p>
 
-          <button className='bg-primary hover:bg-primary/95 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-medium text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'>
+          <button
+            onClick={(e) => scrollToSection(e, 'about')}
+            className='bg-primary hover:bg-primary/95 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-medium text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+          >
             See More
           </button>
         </div>

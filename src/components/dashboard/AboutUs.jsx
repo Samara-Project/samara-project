@@ -1,11 +1,10 @@
 import { urlFor } from '@/lib/sanity'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 const AboutUs = ({ aboutUsData }) => {
     return (
-        <section className='container mx-auto py-12 md:py-16 lg:py-20'>
+        <section id='about' className='container mx-auto py-12 md:py-16 lg:py-20'>
             <div className='flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-12 items-center'>
                 <div className='w-full lg:w-1/2 lg:flex-1'>
                     <div className='relative w-full aspect-[887/556] overflow-hidden'>
