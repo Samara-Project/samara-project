@@ -9,6 +9,7 @@ import Location from '@/components/dashboard/Location'
 import { getMapEmbedUrl } from '../../utils/helpers/getMapUrl'
 import Difference from '@/components/dashboard/Difference'
 import Footer from '@/components/ui/Footer'
+import ChatbotWrapper from '@/components/chatbot/ChatbotWrapper'
 
 const LandingPage = ({ data }) => {
   const { heroData, aboutUs, experience, product, location, difference } = data;
@@ -25,6 +26,7 @@ const LandingPage = ({ data }) => {
       <Product productData={product} />
       <Location locationData={location} />
       <Difference differenceData={difference} />
+      <ChatbotWrapper />
     </>
   )
 }
