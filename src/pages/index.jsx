@@ -8,8 +8,7 @@ import Product from '@/components/dashboard/Product'
 import Location from '@/components/dashboard/Location'
 import { getMapEmbedUrl } from '../../utils/helpers/getMapUrl'
 import Difference from '@/components/dashboard/Difference'
-import Footer from '@/components/ui/Footer'
-import ChatbotWrapper from '@/components/chatbot/ChatbotWrapper'
+import HeadSeo from '@/components/HeadSeo'
 
 const LandingPage = ({ data }) => {
   const { heroData, aboutUs, experience, product, location, difference } = data;
@@ -18,15 +17,47 @@ const LandingPage = ({ data }) => {
     return <div>Loading...</div>
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Samara Chocolate",
+    "alternateName": ["Samara", "Samara Chocolate"],
+    "url": "https://samarachocolate.com",
+    "image": urlFor(heroData?.image),
+    "description": "Premium artisan chocolate crafted from finest Indonesian cacao. Experience luxury chocolate collections, boutique experiences, and the art of chocolate making.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": location?.address || "Your Street Address",
+      "addressLocality": "Daerah Istimewa Yogyakarta",
+      "addressRegion": "Central Java",
+      "postalCode": "55511",
+      "addressCountry": "ID"
+    },
+    "telephone": location?.phone || "+62-xxx-xxxx-xxxx",
+    "priceRange": "$$-$$$",
+    "servesCuisine": "Chocolate, Confectionery",
+    "openingHours": "Mo-Su 09:00-18:00",
+    "sameAs": [
+      "https://www.instagram.com/samarachocolate.id",
+      "https://www.tiktok.com/@samarachocolate.id"
+    ]
+  }
+
   return (
     <>
+      <HeadSeo
+        title="Home | Samara"
+        siteName="Samara Chocolate"
+        description={"Situs Jual Beli Top Up Mobile Legends, Ragnarok, Free Fire, PUBG Mobile, CODM dan banyak lagi, Termurah☑️ Terlengkap☑️ Via e-Money☑️ Pengiriman instan."}
+        image={"/assets/images / openGraph.jpg"}
+        structuredData={structuredData}
+      />
       <Hero heroData={heroData} />
       <AboutUs aboutUsData={aboutUs} />
       <Experience experienceData={experience} />
       <Product productData={product} />
       <Location locationData={location} />
       <Difference differenceData={difference} />
-      <ChatbotWrapper />
     </>
   )
 }

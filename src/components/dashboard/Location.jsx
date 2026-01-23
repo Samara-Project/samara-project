@@ -25,7 +25,7 @@ const Location = ({ locationData }) => {
             </div>
 
             <div className='container mx-auto px-4 md:px-6 lg:px-8 flex justify-center relative pb-12 md:pb-[400px] lg:pb-[445px]'>
-                <div className='w-full md:absolute md:p-8 lg:p-9 p-6 bg-white md:-top-16 lg:-top-20 md:max-w-[800px] lg:max-w-[1005px] mt-6 md:mt-0'
+                <div id='contact' className='w-full md:absolute md:p-8 lg:p-9 p-6 bg-white md:-top-16 lg:-top-20 md:max-w-[800px] lg:max-w-[1005px] mt-6 md:mt-0'
                     style={{
                         boxShadow: '0px 4px 84.2px 0px rgba(0, 0, 0, 0.17)',
                     }}>
@@ -67,6 +67,7 @@ const Location = ({ locationData }) => {
                                 <FaPhoneAlt className='w-5 h-5 md:w-6 md:h-6 mr-2 text-primary flex-shrink-0' />
                                 <a
                                     href={`tel:${locationData.phone}`}
+                                    target='_blank'
                                     className="text-primary font-semibold text-sm sm:text-base hover:underline"
                                 >
                                     {locationData.phone}

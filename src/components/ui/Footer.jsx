@@ -1,4 +1,5 @@
 import { urlFor } from '@/lib/sanity';
+import Image from 'next/image';
 import {
     FaInstagram,
     FaTwitter,
@@ -7,8 +8,8 @@ import {
     FaYoutube,
     FaTiktok,
     FaGithub,
-    FaGlobe
 } from "react-icons/fa";
+import { scrollToSection } from '../../../utils/helpers/smoothScrollTo';
 
 const socialIconMap = {
     instagram: FaInstagram,
@@ -47,6 +48,7 @@ const Footer = ({ footerData }) => {
                         {brand?.ctaText && (
                             <a
                                 href={brand?.ctaLink || '#'}
+                                target='_blank'
                                 className="bg-[#1E3A4C] text-white px-8 py-3 rounded-full font-medium hover:bg-[#2A4A5C] transition-colors duration-300"
                             >
                                 {brand?.ctaText}
@@ -57,7 +59,7 @@ const Footer = ({ footerData }) => {
                     <div className='flex flex-wrap justify-start flex-row gap-10'>
                         {columns?.map((column, index) => {
                             return (
-                                <div key={index} className="flex flex-col">
+                                <div key={index + '-col'} className="flex flex-col">
                                     <h3 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-6 xl:mb-8 leading-tight">
                                         {column.title}
                                     </h3>
@@ -65,14 +67,38 @@ const Footer = ({ footerData }) => {
                                         {column.links?.map((link, linkIndex) => {
                                             const Icon = socialIconMap[link.label?.toLowerCase()];
                                             return (
-                                                <li key={linkIndex}>
-                                                    <a
-                                                        href={link.url || '#'}
-                                                        className="flex items-center gap-2 text-sm md:text-base hover:underline hover:text-[#1E3A4C]/70 transition-colors duration-200"
-                                                    >
-                                                        {Icon && <Icon className="text-lg" />}
-                                                        <span>{link.label}</span>
-                                                    </a>
+                                                <li key={linkIndex + "-link"}>
+                                                    {link?.url?.startsWith('#') ?
+                                                        <button
+                                                            onClick={(e) => { scrollToSection(e, link?.url.replace('#', '')) }}
+                                                            className="flex items-center gap-2 text-sm md:text-base hover:underline hover:text-[#1E3A4C]/70 transition-colors duration-200"
+                                                            target={link?.url.includes('http') ? '_blank' : undefined}
+                                                        >
+                                                            {link?.icon ? <img
+                                                                src={urlFor(link?.icon)}
+                                                                width={18}
+                                                                height={18}
+                                                            />
+                                                                :
+                                                                Icon && <Icon className="text-lg" />}
+                                                            <span>{link.label}</span>
+                                                        </button>
+                                                        :
+                                                        <a
+                                                            href={link?.url || '#'}
+                                                            className="flex items-center gap-2 text-sm md:text-base hover:underline hover:text-[#1E3A4C]/70 transition-colors duration-200"
+                                                            target={link?.url.includes('http') ? '_blank' : undefined}
+                                                        >
+                                                            {link?.icon ? <img
+                                                                src={urlFor(link?.icon)}
+                                                                width={18}
+                                                                height={18}
+                                                            />
+                                                                :
+                                                                Icon && <Icon className="text-lg" />}
+                                                            <span>{link.label}</span>
+                                                        </a>
+                                                    }
                                                 </li>
                                             )
                                         })}

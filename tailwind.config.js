@@ -7,19 +7,15 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#FF6B6B',
-        secondary: '#4ECDC4',
+        primary: "#D49459",
+        secondary: "#003B5C",
         tertiary: '#FFF6EE',
         accent: '#1A535C',
-        secondary: "#003B5C",
-        primary: "#D49459"
       },
       fontFamily: {
         haviland: ['Mr De Haviland', ...defaultTheme.fontFamily.sans],

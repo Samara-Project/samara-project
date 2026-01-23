@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 
 export default function ChatbotWrapper() {
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "/chatbot/chatbot.js";
-        script.async = true;
-        document.body.appendChild(script);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/chatbot/chatbot.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
-    const CHAT_HTML = `
+  const CHAT_HTML = `
 <div id="samara-chatbot">
   <div class="chat-button" id="chatButton" title="Open chat">
     <svg viewBox="0 0 24 24">
@@ -35,14 +35,14 @@ export default function ChatbotWrapper() {
 </div>
 `
 
-    return (
-        <div className='z-[99999] fixed bottom-0 right-0'>
-            <link rel="stylesheet" href="/chatbot/chatbot.css" />
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: CHAT_HTML
-                }}
-            />
-        </div>
-    );
+  return (
+    <div className='z-[99999] fixed bottom-0 right-0'>
+      <link rel="stylesheet" href="/chatbot/chatbot.css" />
+      <div
+        dangerouslySetInnerHTML={{
+          __html: CHAT_HTML
+        }}
+      />
+    </div>
+  );
 }

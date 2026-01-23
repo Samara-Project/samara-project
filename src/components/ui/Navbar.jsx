@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { MdClose, MdMenu } from "react-icons/md";
 import { LuSearch } from "react-icons/lu";
 import { scrollToSection } from '../../../utils/helpers/smoothScrollTo';
+import Link from 'next/link';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -35,12 +36,14 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16 md:h-20">
 
                     <div className="flex-shrink-0">
-                        <Image
-                            src="/assets/svg/logo.svg"
-                            alt="Samara Logo"
-                            width={160}
-                            height={40}
-                        />
+                        <Link href={"/"}>
+                            <Image
+                                src="/assets/svg/logo.svg"
+                                alt="Samara Logo"
+                                width={160}
+                                height={40}
+                            />
+                        </Link>
                     </div>
 
                     <div className="hidden md:flex items-center space-x-6">
@@ -96,14 +99,17 @@ const Navbar = () => {
             >
                 <div className="px-4 pt-2 pb-4 space-y-2">
                     {menuItems.map((item) => (
-                        <a
+                        <button
                             key={item.name}
-                            href={item.href}
                             className="block px-4 py-3 text-amber-50 hover:text-amber-300 hover:bg-white/10 rounded-lg transition-all duration-200 text-base font-medium"
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={(e) => {
+                                scrollToSection(e, item?.href)
+                                setIsMobileMenuOpen(false)
+                            }
+                            }
                         >
                             {item.name}
-                        </a>
+                        </button>
                     ))}
                 </div>
             </div>
