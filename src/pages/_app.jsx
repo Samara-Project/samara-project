@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar fastOrderData={pageProps?.data?.fastOrder} />
       <Component {...pageProps} />
       {/* <ChatbotWrapper /> */}
       <Footer footerData={pageProps?.data?.footer} />

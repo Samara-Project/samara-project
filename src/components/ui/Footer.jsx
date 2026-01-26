@@ -60,10 +60,10 @@ const Footer = ({ footerData }) => {
                         {columns?.map((column, index) => {
                             return (
                                 <div key={index + '-col'} className="flex flex-col">
-                                    <h3 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-6 xl:mb-8 leading-tight">
+                                    <h3 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-2 leading-tight">
                                         {column.title}
                                     </h3>
-                                    <ul className="space-y-3 md:space-y-4">
+                                    <ul className="space-y-2">
                                         {column.links?.map((link, linkIndex) => {
                                             const Icon = socialIconMap[link.label?.toLowerCase()];
                                             return (

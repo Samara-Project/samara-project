@@ -75,8 +75,7 @@ export async function getStaticProps() {
   const locationData = await client.fetch(`*[_type == "visitUs"][0]`)
   const differenceData = await client.fetch(`*[_type == "difference"][0]`)
   const footerData = await client.fetch(`*[_type == "footer"][0]`)
-
-  console.log(heroData)
+  const fastOrderData = await client.fetch(`*[_type == "fastOrder"][0]`)
 
   let embedUrl = null
   if (locationData?.mapUrl) {
@@ -84,6 +83,7 @@ export async function getStaticProps() {
   }
 
   const data = {
+    fastOrder: fastOrderData,
     heroData: heroData,
     aboutUs: aboutUs,
     experience: experienceData,
@@ -96,7 +96,7 @@ export async function getStaticProps() {
       embedUrl: embedUrl
     },
     difference: differenceData,
-    footer: footerData
+    footer: footerData,
   }
 
   return {
