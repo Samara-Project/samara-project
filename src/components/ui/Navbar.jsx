@@ -12,7 +12,6 @@ const Navbar = ({ fastOrderData }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isOrderDropdownOpen, setIsOrderDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
-    console.log(fastOrderData)
 
     useEffect(() => {
         const handleScroll = () => {

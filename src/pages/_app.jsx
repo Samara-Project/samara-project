@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Navbar fastOrderData={pageProps?.data?.fastOrder} />
       <Component {...pageProps} />
-      {/* <ChatbotWrapper /> */}
+      <ChatbotWrapper />
       <Footer footerData={pageProps?.data?.footer} />
     </>
   )
