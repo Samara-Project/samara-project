@@ -24,7 +24,7 @@ const Product = ({ productData }) => {
                                 />
                             </div>
                             <h2 className="h-full flex-1 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mt-10 text-center text-primary">{product?.name}</h2>
-                            <div className='mt-4 text-center text-lg sm:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl'>
+                            <div className='mt-4 text-center text-lg sm:text-xl lg:text-xl 2xl:text-2xl'>
                                 {formatRupiah(product?.price)}
                             </div>
                         </div>
